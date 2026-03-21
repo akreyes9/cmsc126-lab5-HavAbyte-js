@@ -1,7 +1,6 @@
 function time_now() {
-    const now = new Date(); // built-in js object 
+    const now = new Date();
 
-    // built-in JavaScript method used to format a date into a readable string
     const month = now.toLocaleDateString('en', { month: 'long' });
     const day = now.getDate();   
     const year = now.getFullYear(); 
