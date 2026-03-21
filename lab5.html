@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Record System</title>
+    <script src="lab5_scripts.js"></script>
+</head>
+<body>
+    <center>
+        <!-- Show current date -->
+        <button type="button" id="showDateBtn" onclick="time_now()">Show Current Date</button>
+        <p id="dateTimeOutput"></p>
+
+        <!-- Add Student Section -->
+        <p><b>ADD STUDENT</b></p>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" min="0" required><br>
+
+            <label for="mail">Email:</label><br>
+            <input type="email" id="mail" name="mail" required><br>
+
+            <label for="course">Course:</label><br>
+            <select name="course" id="course" required>
+                <option value="">Select a course</option>
+                <option value="ba_food_appreciation">BA Food Appreciation</option>
+                <option value="ba_applied_poetry">BA Applied Poetry of the Future</option>
+                <option value="bs_computer_repair">BS Computer Repair Shop</option>
+                <option value="bs_video_gaming">BS Video Gaming</option>
+                <option value="bs_install_download">BS Installing and Downloading</option>
+            </select><br><br>
+
+            <button type="button" id="submitBtn" onclick="add_student()">Submit</button>
+        </form>
+
+        <!-- Search Student Section -->
+        <p><b>SEARCH STUDENT</b></p>
+        <label for="studentID">Student ID:</label><br>
+        <input type="number" id="studentID" name="studentID"><br><br>
+        <button type="button" id="searchBtn" onclick="find_student()">Search Student</button>
+        <p id="studentOutput"></p>
+
+        <!-- Display Students Section -->
+        <p><b>DISPLAY STUDENTS</b></p>
+        <button type="button" id="displayBtn" onclick="display_list()">Display All</button>
+        <div id="allStudentsOutput"></div>
+    </center>
+</body>
+</html>
