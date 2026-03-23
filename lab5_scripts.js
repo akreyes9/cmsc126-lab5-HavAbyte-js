@@ -29,8 +29,12 @@ function add_student() {
     const course = document.getElementById('course').value;
 
     // GENERATE STUDENT NUMBER
-    const newStudentNum = generateStudentNum();
-    
+    let hasDupe = true;
+    let newStudenNum;
+    while(hasDupe == true){
+        newStudentNum = generateStudentNum();
+        hasDupe = validateStudentNum(newStudentNum);
+    }
     // OBJECT
     const studentProfile = {
         studentNum: newStudentNum, 
@@ -48,4 +52,45 @@ function add_student() {
 function generateStudentNum() {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
     return '2024${randomNum}';
+}
+
+function validateForm(){
+    let isValid = true;
+
+    const name = document.getElementById('name').value.trim();
+    if(name.length <= 5){
+        isValid = false;
+        alert("Name must have greater than 5 characters");
+    }else if(name.includes(" ") == false){
+        isValid = false
+        alert("Name must contain a whitespace")
+    }
+
+    const age = parseInt(document.getElementById('age').value);
+    if(age <= 18){
+        isValid = false;
+        alert("Must be  older than 18");
+    }else if(age >= 99){
+        isValid = false;
+        alert("Must be younger than 99");
+    }
+
+    const email = document.getElementById('email').value;
+    if(email.endsWith("@up.edu.ph") == false){
+        isValid = false;
+        alert("Email must end with @up.edu.ph");
+    }
+
+    if(isValid == true){
+        add_student();
+    }
+}
+
+function validateStudentNum(num){
+    for(const student of students){
+        if(student.studentNum == num){
+            return true;
+        }
+    }
+    return false;
 }
