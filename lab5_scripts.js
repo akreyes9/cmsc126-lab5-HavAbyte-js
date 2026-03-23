@@ -49,3 +49,32 @@ function generateStudentNum() {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
     return '2024${randomNum}';
 }
+//DISPLAY THE PROPERTIES OF THE INPUT( STUDENT ID)
+function find_student(){ 
+    const searchID = document.getElementById('studentID').value;
+    const output = document.getElementById('studentOutput');
+    const student = students.find(s => s.studentNum == searchID);
+
+    if (student) {
+        output.innerHTML = `
+            <strong>Found:</strong><br>
+            Name: ${student.name}<br>
+            Course: ${student.course}<br>
+            Email: ${student.up_email}<br> 
+        `;
+    } else {
+        output.innerHTML = "<span style='color: red;'>Student not found!</span>";
+    }
+
+}
+//DISPLAY THE LIST OF STUDENTS 
+function display_list() {
+    
+    const target = document.getElementById('allStudentsOutput');
+    
+    const finishedHTML = studentProfiles.map(student => {
+        return `<p>Name: ${student.name} | ID: ${student.studentNum}</p>`;
+    }).join(''); // This turns the array of packages into one big string
+
+    target.innerHTML = finishedHTML;
+}
