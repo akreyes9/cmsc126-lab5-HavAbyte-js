@@ -73,8 +73,17 @@ function display_list() {
     const target = document.getElementById('allStudentsOutput');
     
     const finishedHTML = students.map(student => {
-        return `<p>Name: ${student.name} | ID: ${student.studentNum}</p>`;
-    }).join(''); // This turns the array of packages into one big string
+        return `
+            <div class="student-card">
+                <p><strong>Name:</strong> ${student.name}</p>
+                <p><strong>ID:</strong> ${student.studentNum}</p>
+                <p><strong>Age:</strong> ${student.age}</p>
+                <p><strong>Email:</strong> ${student.up_email}</p>
+                <p><strong>Course:</strong> ${student.course}</p>
+                <hr>
+            </div>
+        `;
+    }).join(' ');
 
     target.innerHTML = finishedHTML;
 }
