@@ -72,7 +72,7 @@ function display_list() {
     
     const target = document.getElementById('allStudentsOutput');
     
-    const finishedHTML = studentProfiles.map(student => {
+    const finishedHTML = students.map(student => {
         return `<p>Name: ${student.name} | ID: ${student.studentNum}</p>`;
     }).join(''); // This turns the array of packages into one big string
 
