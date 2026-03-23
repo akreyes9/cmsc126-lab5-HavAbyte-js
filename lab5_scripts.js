@@ -53,7 +53,7 @@ function add_student() {
 
     // ADD TO ARRAY
     students.push(studentProfile);
-    alert('Student profile is successfully submitted.');
+    alert('Student profile has been submitted successfully.');
 
     // RESET
     document.getElementById('studentProfileForm').reset();
