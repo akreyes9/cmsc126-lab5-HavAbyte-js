@@ -63,7 +63,7 @@ function find_student(){
             Email: ${student.up_email}<br> 
         `;
     } else {
-        output.innerHTML = "<span style='color: red;'>Student not found!</span>";
+        output.innerHTML = "<span style='color: red;'>Student record does not exist</span>";
     }
 
 }
