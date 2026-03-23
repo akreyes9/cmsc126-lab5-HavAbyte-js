@@ -72,6 +72,9 @@ function display_list() {
     
     const target = document.getElementById('allStudentsOutput');
     
+    const courseSelect = document.getElementById('course');
+    const course = courseSelect.options[courseSelect.selectedIndex].text;
+
     const finishedHTML = students.map(student => {
         return `
             <div class="student-card">
@@ -79,7 +82,7 @@ function display_list() {
                 <p><strong>ID:</strong> ${student.studentNum}</p>
                 <p><strong>Age:</strong> ${student.age}</p>
                 <p><strong>Email:</strong> ${student.up_email}</p>
-                <p><strong>Course:</strong> ${student.course}</p>
+                <p><strong>Course:</strong> ${course}</p>
                 <hr>
             </div>
         `;
