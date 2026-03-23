@@ -25,7 +25,7 @@ function add_student() {
     // INPUTS
     const name = document.getElementById('name').value.trim();
     const age = parseInt(document.getElementById('age').value);
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('mail').value;
     const course = document.getElementById('course').value;
 
     // GENERATE STUDENT NUMBER
@@ -41,11 +41,14 @@ function add_student() {
     };
 
     students.push(studentProfile);
+
     alert('Student profile is successfully submitted.');
+
+    document.getElementById('studentProfileForm').reset();
 }
 
 // GENERATING 5 RANDOM NUMBERS FOR THE SN
 function generateStudentNum() {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
-    return '2024${randomNum}';
+    return `2024${randomNum}`;
 }
