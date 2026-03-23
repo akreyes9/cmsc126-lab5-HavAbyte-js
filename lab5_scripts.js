@@ -30,7 +30,7 @@ function add_student() {
 
     // GENERATE STUDENT NUMBER
     let hasDupe = true;
-    let newStudenNum;
+    let newStudentNum;
     while(hasDupe == true){
         newStudentNum = generateStudentNum();
         hasDupe = validateStudentNum(newStudentNum);
