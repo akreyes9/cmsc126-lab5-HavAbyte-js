@@ -55,6 +55,9 @@ function find_student(){
     const output = document.getElementById('studentOutput');
     const student = students.find(s => s.studentNum == searchID);
 
+    document.getElementById('studentID').value = "";
+
+
     if (student) {
         output.innerHTML = `
             <strong>Found:</strong><br>
@@ -63,7 +66,7 @@ function find_student(){
             Email: ${student.up_email}<br> 
         `;
     } else {
-        output.innerHTML = "<span style='color: red;'>Student record does not exist</span>";
+        output.innerHTML = "<span style='color: red;'>Student not found!</span>";
     }
 
 }
@@ -72,17 +75,19 @@ function display_list() {
     
     const target = document.getElementById('allStudentsOutput');
     
-    const courseSelect = document.getElementById('course');
-    const course = courseSelect.options[courseSelect.selectedIndex].text;
-
+    
     const finishedHTML = students.map(student => {
+        const courseSelect = document.getElementById('course');
+        const option = [...courseSelect.options].find(opt => opt.value === student.course);
+        const courseText = option ? option.text : student.course;
+
         return `
             <div class="student-card">
                 <p><strong>Name:</strong> ${student.name}</p>
                 <p><strong>ID:</strong> ${student.studentNum}</p>
                 <p><strong>Age:</strong> ${student.age}</p>
                 <p><strong>Email:</strong> ${student.up_email}</p>
-                <p><strong>Course:</strong> ${course}</p>
+                <p><strong>Course:</strong> ${courseText}</p>
                 <hr>
             </div>
         `;
