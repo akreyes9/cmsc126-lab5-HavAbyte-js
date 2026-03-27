@@ -98,7 +98,7 @@ function validateForm(name, age, email, course){
         alert("Email must end with @up.edu.ph");
     }
 
-    if(course == ""){
+    if(course == "Select a course"){
         isValid = false;
         alert("Course must be selected");
     }
