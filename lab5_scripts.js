@@ -15,7 +15,7 @@ function time_now() {
 
     })
 
-    document.getElementById('date_time_output').innerHTML =
+    document.getElementById('dateTimeOutput').innerHTML =
         `<b>Today is ${dateFormatted}.</b><br><b>The current time is ${timeFormatted}.</b>`;
 }
 
