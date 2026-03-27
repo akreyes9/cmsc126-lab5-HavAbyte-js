@@ -58,16 +58,22 @@ function validateForm(){
     let isValid = true;
 
     const name = document.getElementById('name').value.trim();
-    if(name.length <= 5){
+    if(name == ""){
+        isValid = false;
+        alert("Name must be entered");
+    }else if(name.length <= 5){
         isValid = false;
         alert("Name must have greater than 5 characters");
     }else if(name.includes(" ") == false){
-        isValid = false
-        alert("Name must contain a whitespace")
+        isValid = false;
+        alert("Name must contain a whitespace");
     }
 
     const age = parseInt(document.getElementById('age').value);
-    if(age <= 18){
+    if(age == ""){
+        isValid = false;
+        alert("Age must be entered");
+    }else if(age <= 18){
         isValid = false;
         alert("Must be  older than 18");
     }else if(age >= 99){
@@ -75,12 +81,20 @@ function validateForm(){
         alert("Must be younger than 99");
     }
 
-    const email = document.getElementById('email').value;
-    if(email.endsWith("@up.edu.ph") == false){
+    const email = document.getElementById('mail').value.trim();
+    if(email == ""){
+        isValid = false;
+        alert("Email must be entered");
+    }else if(email.endsWith("@up.edu.ph") == false){
         isValid = false;
         alert("Email must end with @up.edu.ph");
     }
 
+    const course = document.getElementById('course').value;
+    if(course == ""){
+        isValid = false;
+        alert("Course must be selected");
+    }
     if(isValid == true){
         add_student();
     }
