@@ -117,7 +117,7 @@ function validateStudentNum(num){
 
 //DISPLAY THE PROPERTIES OF THE INPUT( STUDENT ID)
 function find_student(){ 
-    const searchID = document.getElementById('studentID').value;
+    const searchID = Number(document.getElementById('studentID').value);
     const output = document.getElementById('studentOutput');
     const student = students.find(s => s.studentNum == searchID);
     document.getElementById('studentID').value = "";
