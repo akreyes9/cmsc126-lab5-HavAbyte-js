@@ -30,7 +30,7 @@ function add_student() {
     const courseSelected = course.options[course.selectedIndex].text;
 
     // VERIFICATIONS
-    if (!validateForm(name, age, email)){
+    if (!validateForm(name, age, email, courseSelected)){
         return;
     }
 
@@ -41,6 +41,7 @@ function add_student() {
         newStudentNum = generateStudentNum();
         hasDupe = validateStudentNum(newStudentNum);
     }
+    
     // OBJECT
     const studentProfile = {
         studentNum: newStudentNum, 
@@ -61,7 +62,7 @@ function add_student() {
 // GENERATING 5 RANDOM NUMBERS FOR THE SN
 function generateStudentNum() {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
-    return '2024${randomNum}';
+    return `2024${randomNum}`;
 }
 
 function validateForm(name, age, email, course){
