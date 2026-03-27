@@ -41,7 +41,6 @@ function add_student() {
         newStudentNum = generateStudentNum();
         hasDupe = validateStudentNum(newStudentNum);
     }
-
     // OBJECT
     const studentProfile = {
         studentNum: newStudentNum, 
@@ -62,23 +61,27 @@ function add_student() {
 // GENERATING 5 RANDOM NUMBERS FOR THE SN
 function generateStudentNum() {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
-    return `2024${randomNum}`;
+    return '2024${randomNum}';
 }
 
-function validateForm(name, age, email){
+function validateForm(name, age, email, course){
     let isValid = true;
 
-    // NAME VERIFY
-    if(name.length <= 5){
+    if(name == ""){
+        isValid = false;
+        alert("Name must be entered");
+    }else if(name.length <= 5){
         isValid = false;
         alert("Name must have greater than 5 characters");
     }else if(name.includes(" ") == false){
-        isValid = false
-        alert("Name must contain a whitespace")
+        isValid = false;
+        alert("Name must contain a whitespace");
     }
 
-    // AGE VERIFY
-    if(age <= 18){
+    if(age == ""){
+        isValid = false;
+        alert("Age must be entered");
+    }else if(age <= 18){
         isValid = false;
         alert("Must be  older than 18");
     }else if(age >= 99){
@@ -86,12 +89,19 @@ function validateForm(name, age, email){
         alert("Must be younger than 99");
     }
 
-    // EMAIL VERIFY
-    if(email.endsWith("@up.edu.ph") == false){
+    if(email == ""){
+        isValid = false;
+        alert("Email must be entered");
+    }else if(email.endsWith("@up.edu.ph") == false){
         isValid = false;
         alert("Email must end with @up.edu.ph");
     }
 
+    if(course == ""){
+        isValid = false;
+        alert("Course must be selected");
+    }
+     
     return isValid;
 }
 
