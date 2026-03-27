@@ -82,7 +82,7 @@ function validateForm(name, age, email, course){
     if(age == ""){
         isValid = false;
         alert("Age must be entered");
-    }else if(age < 18){
+    }else if(age <= 18){
         isValid = false;
         alert("Must be older than 18");
     }else if(age >= 99){
