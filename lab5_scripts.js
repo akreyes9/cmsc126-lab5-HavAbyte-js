@@ -25,7 +25,7 @@ function add_student() {
     // INPUTS
     const name = document.getElementById('name').value.trim();
     const age = parseInt(document.getElementById('age').value);
-    const email = document.getElementById('mail').value;
+    const email = document.getElementById('mail').value.trim();
     const course = document.getElementById('course');
     const courseSelected = course.options[course.selectedIndex].text;
 
