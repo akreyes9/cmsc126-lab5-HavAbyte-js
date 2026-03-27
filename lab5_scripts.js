@@ -117,10 +117,9 @@ function validateStudentNum(num){
 
 //DISPLAY THE PROPERTIES OF THE INPUT( STUDENT ID)
 function find_student(){ 
-    const searchID = Number(document.getElementById('studentID').value);
+    const searchID = document.getElementById('studentID').value;
     const output = document.getElementById('studentOutput');
     const student = students.find(s => s.studentNum == searchID);
-
     document.getElementById('studentID').value = "";
 
     if (student) {
@@ -133,7 +132,6 @@ function find_student(){
     } else {
         output.innerHTML = "<span style='color: red;'>Student not found!</span>";
     }
-
 }
 
 //DISPLAY THE LIST OF STUDENTS 
@@ -143,6 +141,7 @@ function display_list() {
         const courseSelect = document.getElementById('course');
         const option = [...courseSelect.options].find(opt => opt.value === student.course);
         const courseText = option ? option.text : student.course;
+
         return `
             <div class="student-card">
                 <p><strong>Name:</strong> ${student.name}</p>
