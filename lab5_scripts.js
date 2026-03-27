@@ -76,15 +76,15 @@ function validateForm(name, age, email, course){
         alert("Name must have greater than 5 characters");
     }else if(name.includes(" ") == false){
         isValid = false;
-        alert("Name must contain a whitespace");
+        alert("Please write your full name.");
     }
 
     if(age == ""){
         isValid = false;
         alert("Age must be entered");
-    }else if(age <= 18){
+    }else if(age < 18){
         isValid = false;
-        alert("Must be  older than 18");
+        alert("Must be older than 18");
     }else if(age >= 99){
         isValid = false;
         alert("Must be younger than 99");
