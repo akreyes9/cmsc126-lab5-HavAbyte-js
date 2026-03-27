@@ -113,3 +113,46 @@ function validateStudentNum(num){
     }
     return false;
 }
+
+//DISPLAY THE PROPERTIES OF THE INPUT( STUDENT ID)
+function find_student(){ 
+    const searchID = Number(document.getElementById('studentID').value);
+    const output = document.getElementById('studentOutput');
+    const student = students.find(s => s.studentNum == searchID);
+
+    document.getElementById('studentID').value = "";
+
+    if (student) {
+        output.innerHTML = `
+            <strong>Found:</strong><br>
+            Name: ${student.name}<br>
+            Course: ${student.course}<br>
+            Email: ${student.up_email}<br> 
+        `;
+    } else {
+        output.innerHTML = "<span style='color: red;'>Student not found!</span>";
+    }
+
+}
+
+//DISPLAY THE LIST OF STUDENTS 
+function display_list() {
+    const target = document.getElementById('allStudentsOutput');
+    const finishedHTML = students.map(student => {
+        const courseSelect = document.getElementById('course');
+        const option = [...courseSelect.options].find(opt => opt.value === student.course);
+        const courseText = option ? option.text : student.course;
+        return `
+            <div class="student-card">
+                <p><strong>Name:</strong> ${student.name}</p>
+                <p><strong>ID:</strong> ${student.studentNum}</p>
+                <p><strong>Age:</strong> ${student.age}</p>
+                <p><strong>Email:</strong> ${student.up_email}</p>
+                <p><strong>Course:</strong> ${courseText}</p>
+                <hr>
+            </div>
+        `;
+    }).join(' ');
+
+    target.innerHTML = finishedHTML || "<p>No students found.</p>";
+}
