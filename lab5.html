@@ -5,25 +5,31 @@
     <script src="lab5_scripts.js"></script>
 </head>
 <body>
-    <center>
+
+    <div style="text-align: center; margin-top: 50px;">
+
+        <h2>Student Record System</h2>
+
         <!-- Show current date -->
-        <button type="button" id="showDateBtn" onclick="time_now()">Show Current Date</button>
+        <button type="button" onclick="time_now()">Show Current Date</button>
         <p id="dateTimeOutput"></p>
 
+        <hr width="50%">
+
         <!-- Add Student Section -->
-        <p><b>ADD STUDENT</b></p>
+        <h3>ADD STUDENT</h3>
         <form>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" required><br>
+            <label>Name:</label><br>
+            <input type="text" id="name" required><br><br>
 
-            <label for="age">Age:</label><br>
-            <input type="number" id="age" name="age" min="0" required><br>
+            <label>Age:</label><br>
+            <input type="number" id="age" min="0" required><br><br>
 
-            <label for="mail">Email:</label><br>
-            <input type="email" id="mail" name="mail" required><br>
+            <label>Email:</label><br>
+            <input type="email" id="mail" required><br><br>
 
-            <label for="course">Course:</label><br>
-            <select name="course" id="course" required>
+            <label>Course:</label><br>
+            <select id="course" required>
                 <option value="">Select a course</option>
                 <option value="ba_food_appreciation">BA Food Appreciation</option>
                 <option value="ba_applied_poetry">BA Applied Poetry of the Future</option>
@@ -32,20 +38,28 @@
                 <option value="bs_install_download">BS Installing and Downloading</option>
             </select><br><br>
 
-            <button type="button" id="submitBtn" onclick="add_student()">Submit</button>
+            <button type="button" onclick="add_student()">Submit</button>
         </form>
 
+        <hr width="50%">
+
         <!-- Search Student Section -->
-        <p><b>SEARCH STUDENT</b></p>
-        <label for="studentID">Student ID:</label><br>
-        <input type="number" id="studentID" name="studentID"><br><br>
-        <button type="button" id="searchBtn" onclick="find_student()">Search Student</button>
+        <h3>SEARCH STUDENT</h3>
+        <label>Student ID:</label><br>
+        <input type="number" id="studentID"><br><br>
+        <button type="button" onclick="find_student()">Search Student</button>
         <p id="studentOutput"></p>
 
+        <hr width="50%">
+
         <!-- Display Students Section -->
-        <p><b>DISPLAY STUDENTS</b></p>
-        <button type="button" id="displayBtn" onclick="display_list()">Display All</button>
+        <h3>DISPLAY STUDENTS</h3>
+        <button type="button" onclick="display_list()">Display All</button>
         <div id="allStudentsOutput"></div>
-    </center>
+
+    </div>
+
+    <br><br>
+
 </body>
 </html>
