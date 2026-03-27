@@ -25,27 +25,81 @@ function add_student() {
     // INPUTS
     const name = document.getElementById('name').value.trim();
     const age = parseInt(document.getElementById('age').value);
-    const email = document.getElementById('email').value;
-    const course = document.getElementById('course').value;
+    const email = document.getElementById('mail').value;
+    const course = document.getElementById('course');
+    const courseSelected = course.options[course.selectedIndex].text;
+
+    // VERIFICATIONS
+    if (!validateForm(name, age, email)){
+        return;
+    }
 
     // GENERATE STUDENT NUMBER
-    const newStudentNum = generateStudentNum();
-    
+    let hasDupe = true;
+    let newStudentNum;
+    while(hasDupe == true){
+        newStudentNum = generateStudentNum();
+        hasDupe = validateStudentNum(newStudentNum);
+    }
+
     // OBJECT
     const studentProfile = {
         studentNum: newStudentNum, 
         name: name,
         age: age,
         up_email: email,
-        course: course
+        course: courseSelected
     };
 
+    // ADD TO ARRAY
     students.push(studentProfile);
-    alert('Student profile is successfully submitted.');
+    alert('Student profile has been submitted successfully.');
+
+    // RESET
+    document.getElementById('studentProfileForm').reset();
 }
 
 // GENERATING 5 RANDOM NUMBERS FOR THE SN
 function generateStudentNum() {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
-    return '2024${randomNum}';
+    return `2024${randomNum}`;
+}
+
+function validateForm(name, age, email){
+    let isValid = true;
+
+    // NAME VERIFY
+    if(name.length <= 5){
+        isValid = false;
+        alert("Name must have greater than 5 characters");
+    }else if(name.includes(" ") == false){
+        isValid = false
+        alert("Name must contain a whitespace")
+    }
+
+    // AGE VERIFY
+    if(age <= 18){
+        isValid = false;
+        alert("Must be  older than 18");
+    }else if(age >= 99){
+        isValid = false;
+        alert("Must be younger than 99");
+    }
+
+    // EMAIL VERIFY
+    if(email.endsWith("@up.edu.ph") == false){
+        isValid = false;
+        alert("Email must end with @up.edu.ph");
+    }
+
+    return isValid;
+}
+
+function validateStudentNum(num){
+    for(const student of students){
+        if(student.studentNum == num){
+            return true;
+        }
+    }
+    return false;
 }
