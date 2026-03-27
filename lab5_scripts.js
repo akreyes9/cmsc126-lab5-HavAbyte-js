@@ -149,7 +149,7 @@ function display_list() {
                 <p><strong>Age:</strong> ${student.age}</p>
                 <p><strong>Email:</strong> ${student.up_email}</p>
                 <p><strong>Course:</strong> ${courseText}</p>
-                <hr>
+                <hr width="50%">
             </div>
         `;
     }).join(' ');
