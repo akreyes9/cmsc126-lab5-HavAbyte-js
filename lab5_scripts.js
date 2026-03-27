@@ -15,7 +15,7 @@ function time_now() {
 
     })
 
-    document.getElementById('date_time_output').innerHTML =
+    document.getElementById('dateTimeOutput').innerHTML =
         `<b>Today is ${dateFormatted}.</b><br><b>The current time is ${timeFormatted}.</b>`;
 }
 
@@ -25,8 +25,14 @@ function add_student() {
     // INPUTS
     const name = document.getElementById('name').value.trim();
     const age = parseInt(document.getElementById('age').value);
-    const email = document.getElementById('email').value;
-    const course = document.getElementById('course').value;
+    const email = document.getElementById('mail').value;
+    const course = document.getElementById('course');
+    const courseSelected = course.options[course.selectedIndex].text;
+
+    // VERIFICATIONS
+    if (!validateForm(name, age, email)){
+        return;
+    }
 
     // GENERATE STUDENT NUMBER
     let hasDupe = true;
@@ -41,11 +47,15 @@ function add_student() {
         name: name,
         age: age,
         up_email: email,
-        course: course
+        course: courseSelected
     };
 
+    // ADD TO ARRAY
     students.push(studentProfile);
-    alert('Student profile is successfully submitted.');
+    alert('Student profile has been submitted successfully.');
+
+    // RESET
+    document.getElementById('studentProfileForm').reset();
 }
 
 // GENERATING 5 RANDOM NUMBERS FOR THE SN
