@@ -54,10 +54,9 @@ function generateStudentNum() {
     return '2024${randomNum}';
 }
 
-function validateForm(){
+function validateForm(name, age, email, course){
     let isValid = true;
 
-    const name = document.getElementById('name').value.trim();
     if(name == ""){
         isValid = false;
         alert("Name must be entered");
@@ -69,7 +68,6 @@ function validateForm(){
         alert("Name must contain a whitespace");
     }
 
-    const age = parseInt(document.getElementById('age').value);
     if(age == ""){
         isValid = false;
         alert("Age must be entered");
@@ -81,7 +79,6 @@ function validateForm(){
         alert("Must be younger than 99");
     }
 
-    const email = document.getElementById('mail').value.trim();
     if(email == ""){
         isValid = false;
         alert("Email must be entered");
@@ -90,14 +87,12 @@ function validateForm(){
         alert("Email must end with @up.edu.ph");
     }
 
-    const course = document.getElementById('course').value;
     if(course == ""){
         isValid = false;
         alert("Course must be selected");
     }
-    if(isValid == true){
-        add_student();
-    }
+     
+    return isValid;
 }
 
 function validateStudentNum(num){
